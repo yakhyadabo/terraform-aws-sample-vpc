@@ -1,8 +1,10 @@
 variable "environment" {
+  type = string
   description = "Deployment Environment"
 }
 
 variable "vpc_cidr" {
+  type = string
   description = "CIDR block of the vpc"
 }
 
@@ -21,5 +23,5 @@ variable "availability_zones" {
   description = "AZ in which all the resources will be deployed"
 }
 variable "region" {
-  default = "us-east-1"
+  type = string
 }
