@@ -1,1 +1,7 @@
 ﻿== *Terraform sample project for AWS VPC*
+
+=== *VPC*
+
+=== *Private Subnets*
+
+=== *Public Subnets*
