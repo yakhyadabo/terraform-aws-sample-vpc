@@ -13,6 +13,11 @@ variable "public_subnets_cidr" {
   description = "CIDR block for Public Subnet"
 }
 
+#variable "dmz_subnets_cidr" {
+#  type        = list(any)
+#  description = "CIDR block for the DMZ Subnet"
+#}
+
 variable "private_subnets_cidr" {
   type        = list(any)
   description = "CIDR block for Private Subnet"
