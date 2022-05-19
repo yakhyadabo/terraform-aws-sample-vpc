@@ -1,19 +1,3 @@
-# Elastic-IP (eip) for NAT
-resource "aws_eip" "nat_eip" {
-  vpc        = true
-  depends_on = [aws_internet_gateway.ig]
-}
-
-# NAT
-resource "aws_nat_gateway" "nat" {
-  allocation_id = aws_eip.nat_eip.id
-  subnet_id     = element(aws_subnet.public_subnet.*.id, 0)
-
-  tags = {
-    Name        = "nat"
-  }
-}
-
 # Private Subnet
 resource "aws_subnet" "private_subnet" {
   vpc_id                  = aws_vpc.vpc.id
