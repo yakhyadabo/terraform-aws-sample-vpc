@@ -23,6 +23,11 @@ variable "private_subnets_cidr" {
   description = "CIDR block for Private Subnet"
 }
 
+variable "eks_cluster_subnets_cidr" {
+  type        = list(any)
+  description = "CIDR block for EKS cluster Subnet"
+}
+
 variable "availability_zones" {
   type        = list(any)
   description = "AZ in which all the resources will be deployed"
