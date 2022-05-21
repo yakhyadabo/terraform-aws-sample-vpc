@@ -8,7 +8,7 @@ resource "aws_subnet" "dmz_subnet" {
 
   tags = {
     Name        = "${var.environment}-${element(var.availability_zones, count.index)}-dmz-subnet"
-    Zone = "dmz"
+    Zone = local.zone.dmz
   }
 }
 

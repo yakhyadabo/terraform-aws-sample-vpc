@@ -8,7 +8,7 @@ resource "aws_subnet" "eks_cluster_subnet" {
 
   tags = {
     Name        = "${var.environment}-${element(var.availability_zones, count.index)}-eks-cluster-private-subnet"
-    Zone = "eks-cluster"
+    Zone = local.zone.eks_cluster
   }
 }
 
