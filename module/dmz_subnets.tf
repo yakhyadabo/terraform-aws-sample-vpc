@@ -14,6 +14,7 @@ resource "aws_subnet" "dmz_subnet" {
 
 # Routing tables to route traffic for DMZ Subnet
 resource "aws_route_table" "dmz" {
+  count          = length(var.dmz_subnets_cidr) > 0 ? 1 : 0
   vpc_id = aws_vpc.vpc.id
 
   tags = {
@@ -23,7 +24,8 @@ resource "aws_route_table" "dmz" {
 
 # Route for NAT
 resource "aws_route" "dmz_nat_gateway" {
-  route_table_id         = aws_route_table.dmz.id
+  count          = length(var.dmz_subnets_cidr) > 0 ? 1 : 0
+  route_table_id         = aws_route_table.dmz[0].id
   destination_cidr_block = "0.0.0.0/0"
   nat_gateway_id         = aws_nat_gateway.nat.id
 }
@@ -32,5 +34,5 @@ resource "aws_route" "dmz_nat_gateway" {
 resource "aws_route_table_association" "dmz" {
   count          = length(var.dmz_subnets_cidr)
   subnet_id      = element(aws_subnet.dmz_subnet.*.id, count.index)
-  route_table_id = aws_route_table.dmz.id
+  route_table_id = aws_route_table.dmz[0].id
 }

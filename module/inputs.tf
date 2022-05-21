@@ -16,6 +16,7 @@ variable "public_subnets_cidr" {
 variable "dmz_subnets_cidr" {
   type        = list(any)
   description = "CIDR block for the DMZ Subnet"
+  default = []
 }
 
 variable "private_subnets_cidr" {
