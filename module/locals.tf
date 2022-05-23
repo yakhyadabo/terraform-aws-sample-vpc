@@ -1,8 +1,9 @@
 locals {
   zone = {
-    public      = "public"
-    private     = "private"
-    eks_cluster = "eks-cluster"
+    public      = "pbl"
+    private     = "prv"
+    eks_cluster = "eks"
     dmz         = "dmz"
+    dba         = "dba"
   }
 }
