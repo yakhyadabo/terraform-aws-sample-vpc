@@ -1,4 +1,5 @@
 *
+.idea/*
 !.gitattibutes
 !.gitignore
 !.env
