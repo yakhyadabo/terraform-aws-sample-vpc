@@ -16,7 +16,7 @@ resource "aws_subnet" "public_subnet" {
 
   tags = {
     Name        = "${var.environment}-${element(var.availability_zones, count.index)}-public-subnet"
-    Zone = local.zone.public
+    Tier = local.tier.public
   }
 }
 
