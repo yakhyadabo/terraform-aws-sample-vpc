@@ -7,7 +7,7 @@ resource "aws_subnet" "dmz_subnet" {
   map_public_ip_on_launch = false
 
   tags = {
-    Name        = "${var.environment}-${element(var.availability_zones, count.index)}-dmz-subnet"
+    Name        = "${var.environment}-dmz-subnet-${element(var.availability_zones, count.index)}"
     Tier = local.tier.dmz
   }
 }
