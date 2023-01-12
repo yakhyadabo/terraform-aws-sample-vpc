@@ -15,7 +15,7 @@ resource "aws_subnet" "public_subnet" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name        = "${var.environment}-public-subnet-${element(var.availability_zones, count.index)}"
+    Name        = join("-",[var.environment, "public-subnet", element(var.availability_zones, count.index)])
     Tier = local.tier.public
   }
 }

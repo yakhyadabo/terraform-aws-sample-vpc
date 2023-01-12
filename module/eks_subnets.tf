@@ -7,7 +7,7 @@ resource "aws_subnet" "eks_cluster_subnet" {
   map_public_ip_on_launch = false
 
   tags = {
-    Name        = "${var.environment}-eks-cluster-subnet-${element(var.availability_zones, count.index)}"
+    Name        = join("-",[var.environment, "eks-cluster-subnet", element(var.availability_zones, count.index)])
     Tier = local.tier.eks_cluster
   }
 }
