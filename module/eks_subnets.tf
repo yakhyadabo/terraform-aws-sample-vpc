@@ -9,6 +9,8 @@ resource "aws_subnet" "eks_cluster_subnet" {
   tags = {
     Name        = join("-",[var.environment, "eks-cluster-subnet", element(var.availability_zones, count.index)])
     Tier = local.tier.eks_cluster
+    "kubernetes.io/cluster/${var.project_name}-${var.environment}" = "shared"
+    "kubernetes.io/role/internal-elb" = 1
   }
 }
 

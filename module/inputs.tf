@@ -1,3 +1,12 @@
+variable "region" {
+  type = string
+}
+
+variable "project_name" {
+  type = string
+  description = "Name of the project"
+}
+
 variable "environment" {
   type        = string
   description = <<EOT
@@ -80,7 +89,4 @@ variable "eks_cluster_subnets_cidr" {
 variable "availability_zones" {
   type        = list(any)
   description = "AZ in which all the resources will be deployed"
-}
-variable "region" {
-  type = string
 }

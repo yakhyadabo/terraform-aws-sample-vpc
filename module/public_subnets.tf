@@ -17,6 +17,8 @@ resource "aws_subnet" "public_subnet" {
   tags = {
     Name        = join("-",[var.environment, "public-subnet", element(var.availability_zones, count.index)])
     Tier = local.tier.public
+    "kubernetes.io/cluster/${var.project_name}-${var.environment}" = "shared"
+    "kubernetes.io/role/elb" = 1
   }
 }
 
