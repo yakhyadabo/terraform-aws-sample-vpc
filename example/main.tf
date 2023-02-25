@@ -7,7 +7,7 @@ locals {
 }
 
 module "vpc" {
-  source               = "./module"
+  source               = "../module"
   region               = var.region
   project_name         = var.project.name
   environment          = var.project.environment
